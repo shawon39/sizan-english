@@ -1,23 +1,23 @@
-/* Sizan English — lesson data
-   Colour roles in `compare`: s = who (কে), v = action/being (কাজ), o = what/how (কী/কেমন), q = question word (প্রশ্ন)
+/* Sizan English: lesson data
+   compare roles: s = who (কে), v = action/being (কাজ), o = what/how (কী/কেমন), q = question word (প্রশ্ন)
+   icon = Tabler icon name (see icons.js). hl = pattern words highlighted in examples.
+   word.ex = [English example, Bangla meaning]
 */
 window.LESSONS = [
   {
-    id: 1, emoji: "👋", title: "Hello! I am Sizan", bn: "হ্যালো! আমি সিজান",
+    id: 1, icon: "hand-stop", title: "Hello! I am Sizan", bn: "হ্যালো! আমি সিজান",
+    hl: ["I", "am"],
     words: [
-      { en: "hello", bn: "হ্যালো (শুভেচ্ছা)", say: "হ্যালো", emoji: "👋" },
-      { en: "I", bn: "আমি", say: "আই", emoji: "🙋" },
-      { en: "am", bn: "হই / আছি", say: "অ্যাম", emoji: "🧍" },
-      { en: "name", bn: "নাম", say: "নেইম", emoji: "🏷️" },
-      { en: "fine", bn: "ভালো", say: "ফাইন", emoji: "🙂" },
-      { en: "happy", bn: "খুশি", say: "হ্যাপি", emoji: "😀" }
+      { en: "hello", bn: "হ্যালো (শুভেচ্ছা)", say: "হ্যালো", icon: "hand-stop", ex: ["Hello, Rafi!", "হ্যালো, রাফি!"] },
+      { en: "I", bn: "আমি", say: "আই", icon: "user", ex: ["I am Sizan.", "আমি সিজান।"] },
+      { en: "am", bn: "হই / আছি", say: "অ্যাম", icon: "equal", ex: ["I am at home.", "আমি বাসায় আছি।"] },
+      { en: "name", bn: "নাম", say: "নেইম", icon: "tag", ex: ["My name is Sizan.", "আমার নাম সিজান।"] },
+      { en: "fine", bn: "ভালো", say: "ফাইন", icon: "mood-smile", ex: ["I am fine, thank you.", "আমি ভালো আছি, ধন্যবাদ।"] },
+      { en: "happy", bn: "খুশি", say: "হ্যাপি", icon: "mood-happy", ex: ["I am happy today.", "আজ আমি খুশি।"] }
     ],
     pattern: {
       rows: [{ en: "I am ___", bn: "আমি ___" }],
-      compare: {
-        bn: [["আমি", "s"], ["সিজান", "o"]],
-        en: [["I", "s"], ["am", "v"], ["Sizan", "o"]]
-      },
+      compare: { bn: [["আমি", "s"], ["সিজান", "o"]], en: [["I", "s"], ["am", "v"], ["Sizan", "o"]] },
       points: [
         "বাংলায় বলি “আমি সিজান”। মাঝে কোনো শব্দ লাগে না।",
         "ইংরেজিতে মাঝে <b>am</b> বসাতে হয়: <b>I am Sizan.</b>",
@@ -30,7 +30,9 @@ window.LESSONS = [
       { en: "I am fine.", bn: "আমি ভালো আছি।" },
       { en: "I am happy.", bn: "আমি খুশি।" },
       { en: "I am at home.", bn: "আমি বাসায় আছি।" },
-      { en: "I am from Bangladesh.", bn: "আমি বাংলাদেশ থেকে এসেছি।" }
+      { en: "I am from Bangladesh.", bn: "আমি বাংলাদেশ থেকে এসেছি।" },
+      { en: "I am hungry.", bn: "আমার খিদে পেয়েছে।" },
+      { en: "I am ready.", bn: "আমি তৈরি।" }
     ],
     fill: [
       { q: "I ___ fine.", a: "am", opts: ["am", "is", "are"], bn: "আমি ভালো আছি।" },
@@ -50,14 +52,15 @@ window.LESSONS = [
   },
 
   {
-    id: 2, emoji: "👥", title: "You, He, She", bn: "তুমি, সে (ছেলে), সে (মেয়ে)",
+    id: 2, icon: "users", title: "You, He, She", bn: "তুমি, সে (ছেলে), সে (মেয়ে)",
+    hl: ["am", "is", "are"],
     words: [
-      { en: "you", bn: "তুমি / আপনি", say: "ইউ", emoji: "👉" },
-      { en: "he", bn: "সে (ছেলে)", say: "হি", emoji: "👨" },
-      { en: "she", bn: "সে (মেয়ে)", say: "শি", emoji: "👩" },
-      { en: "is", bn: "হয় / আছে (he, she এর সাথে)", say: "ইজ", emoji: "➕" },
-      { en: "are", bn: "হও / আছ (you এর সাথে)", say: "আর", emoji: "➕" },
-      { en: "tired", bn: "ক্লান্ত", say: "টায়ার্ড", emoji: "😴" }
+      { en: "you", bn: "তুমি / আপনি", say: "ইউ", icon: "user-circle", ex: ["You are my friend.", "তুমি আমার বন্ধু।"] },
+      { en: "he", bn: "সে (ছেলে)", say: "হি", icon: "man", ex: ["He is my father.", "সে আমার বাবা।"] },
+      { en: "she", bn: "সে (মেয়ে)", say: "শি", icon: "woman", ex: ["She is my sister.", "সে আমার বোন।"] },
+      { en: "is", bn: "হয় / আছে (he, she এর সাথে)", say: "ইজ", icon: "equal", ex: ["He is happy.", "সে খুশি।"] },
+      { en: "are", bn: "হও / আছ (you এর সাথে)", say: "আর", icon: "equal-double", ex: ["You are kind.", "তুমি দয়ালু।"] },
+      { en: "tired", bn: "ক্লান্ত", say: "টায়ার্ড", icon: "zzz", ex: ["I am tired today.", "আজ আমি ক্লান্ত।"] }
     ],
     pattern: {
       rows: [
@@ -65,10 +68,7 @@ window.LESSONS = [
         { en: "You are", bn: "তুমি" },
         { en: "He is / She is", bn: "সে" }
       ],
-      compare: {
-        bn: [["সে", "s"], ["ক্লান্ত", "o"]],
-        en: [["He", "s"], ["is", "v"], ["tired", "o"]]
-      },
+      compare: { bn: [["সে", "s"], ["ক্লান্ত", "o"]], en: [["He", "s"], ["is", "v"], ["tired", "o"]] },
       points: [
         "বাংলায় “সে” একটাই শব্দ। ইংরেজিতে ছেলে হলে <b>He</b>, মেয়ে হলে <b>She</b>।",
         "মনে রাখো: <b>I → am</b>, <b>You → are</b>, <b>He / She → is</b>।"
@@ -80,7 +80,9 @@ window.LESSONS = [
       { en: "She is my mother.", bn: "সে আমার মা।" },
       { en: "He is tired.", bn: "সে ক্লান্ত।" },
       { en: "She is happy.", bn: "সে খুশি।" },
-      { en: "I am tired.", bn: "আমি ক্লান্ত।" }
+      { en: "I am tired.", bn: "আমি ক্লান্ত।" },
+      { en: "You are a good man.", bn: "তুমি একজন ভালো মানুষ।" },
+      { en: "She is at home.", bn: "সে বাসায় আছে।" }
     ],
     fill: [
       { q: "He ___ tired.", a: "is", opts: ["am", "is", "are"], bn: "সে ক্লান্ত।" },
@@ -100,24 +102,22 @@ window.LESSONS = [
   },
 
   {
-    id: 3, emoji: "🚌", title: "This is a bus", bn: "এটা একটা বাস",
+    id: 3, icon: "bus", title: "This is a bus", bn: "এটা একটা বাস",
+    hl: ["this", "that", "is"],
     words: [
-      { en: "this", bn: "এটা (কাছের)", say: "দিস", emoji: "👇" },
-      { en: "that", bn: "ওটা (দূরের)", say: "দ্যাট", emoji: "👉" },
-      { en: "bus", bn: "বাস", say: "বাস", emoji: "🚌" },
-      { en: "truck", bn: "ট্রাক", say: "ট্রাক", emoji: "🚚" },
-      { en: "phone", bn: "ফোন", say: "ফোন", emoji: "📱" },
-      { en: "bag", bn: "ব্যাগ", say: "ব্যাগ", emoji: "🎒" }
+      { en: "this", bn: "এটা (কাছের)", say: "দিস", icon: "hand-finger-down", ex: ["This is my bag.", "এটা আমার ব্যাগ।"] },
+      { en: "that", bn: "ওটা (দূরের)", say: "দ্যাট", icon: "hand-finger-right", ex: ["That is a big truck.", "ওটা একটা বড় ট্রাক।"] },
+      { en: "bus", bn: "বাস", say: "বাস", icon: "bus", ex: ["I go by bus.", "আমি বাসে যাই।"] },
+      { en: "truck", bn: "ট্রাক", say: "ট্রাক", icon: "truck", ex: ["This is a truck.", "এটা একটা ট্রাক।"] },
+      { en: "phone", bn: "ফোন", say: "ফোন", icon: "device-mobile", ex: ["This is my phone.", "এটা আমার ফোন।"] },
+      { en: "bag", bn: "ব্যাগ", say: "ব্যাগ", icon: "backpack", ex: ["That is my bag.", "ওটা আমার ব্যাগ।"] }
     ],
     pattern: {
       rows: [
         { en: "This is a ___", bn: "এটা একটা ___" },
         { en: "That is a ___", bn: "ওটা একটা ___" }
       ],
-      compare: {
-        bn: [["এটা", "s"], ["একটা বাস", "o"]],
-        en: [["This", "s"], ["is", "v"], ["a bus", "o"]]
-      },
+      compare: { bn: [["এটা", "s"], ["একটা বাস", "o"]], en: [["This", "s"], ["is", "v"], ["a bus", "o"]] },
       points: [
         "কাছের জিনিস = <b>this</b>, দূরের জিনিস = <b>that</b>।",
         "একটা জিনিস বোঝাতে আগে <b>a</b> বসে: <b>a bus</b>, <b>a phone</b>।"
@@ -129,7 +129,9 @@ window.LESSONS = [
       { en: "This is my phone.", bn: "এটা আমার ফোন।" },
       { en: "That is his bag.", bn: "ওটা তার ব্যাগ।" },
       { en: "This is my friend Rafi.", bn: "এ আমার বন্ধু রাফি।" },
-      { en: "That bus is big.", bn: "ওই বাসটা বড়।" }
+      { en: "That bus is big.", bn: "ওই বাসটা বড়।" },
+      { en: "This is my house.", bn: "এটা আমার বাড়ি।" },
+      { en: "That is a shop.", bn: "ওটা একটা দোকান।" }
     ],
     fill: [
       { q: "This ___ a truck.", a: "is", opts: ["is", "am", "are"], bn: "এটা একটা ট্রাক।" },
@@ -149,27 +151,25 @@ window.LESSONS = [
   },
 
   {
-    id: 4, emoji: "🤲", title: "I have a phone", bn: "আমার একটা ফোন আছে",
+    id: 4, icon: "hand-grab", title: "I have a phone", bn: "আমার একটা ফোন আছে",
+    hl: ["have", "has"],
     words: [
-      { en: "have", bn: "আছে (আমার / তোমার)", say: "হ্যাভ", emoji: "🤲" },
-      { en: "has", bn: "আছে (তার)", say: "হ্যাজ", emoji: "🫴" },
-      { en: "brother", bn: "ভাই", say: "ব্রাদার", emoji: "👦" },
-      { en: "sister", bn: "বোন", say: "সিস্টার", emoji: "👧" },
-      { en: "car", bn: "গাড়ি", say: "কার", emoji: "🚗" },
-      { en: "money", bn: "টাকা", say: "মানি", emoji: "💵" }
+      { en: "have", bn: "আছে (আমার / তোমার)", say: "হ্যাভ", icon: "hand-grab", ex: ["I have a phone.", "আমার একটা ফোন আছে।"] },
+      { en: "has", bn: "আছে (তার)", say: "হ্যাজ", icon: "user-check", ex: ["He has a car.", "তার একটা গাড়ি আছে।"] },
+      { en: "brother", bn: "ভাই", say: "ব্রাদার", icon: "gender-male", ex: ["My brother is at home.", "আমার ভাই বাসায় আছে।"] },
+      { en: "sister", bn: "বোন", say: "সিস্টার", icon: "gender-female", ex: ["My sister is happy.", "আমার বোন খুশি।"] },
+      { en: "car", bn: "গাড়ি", say: "কার", icon: "car", ex: ["This is my car.", "এটা আমার গাড়ি।"] },
+      { en: "money", bn: "টাকা", say: "মানি", icon: "cash", ex: ["I have money.", "আমার কাছে টাকা আছে।"] }
     ],
     pattern: {
       rows: [
         { en: "I have ___", bn: "আমার ___ আছে" },
         { en: "He has / She has ___", bn: "তার ___ আছে" }
       ],
-      compare: {
-        bn: [["আমার", "s"], ["একটা ফোন", "o"], ["আছে", "v"]],
-        en: [["I", "s"], ["have", "v"], ["a phone", "o"]]
-      },
+      compare: { bn: [["আমার", "s"], ["একটা ফোন", "o"], ["আছে", "v"]], en: [["I", "s"], ["have", "v"], ["a phone", "o"]] },
       points: [
         "বাংলায় “আছে” শেষে বসে। ইংরেজিতে <b>have</b> বসে মাঝে।",
-        "<b>I, You, We</b> → have। <b>He, She</b> → has।"
+        "<b>I, You, We, They</b> → have। <b>He, She</b> → has।"
       ]
     },
     examples: [
@@ -178,7 +178,9 @@ window.LESSONS = [
       { en: "She has a sister.", bn: "তার একটা বোন আছে।" },
       { en: "He has a car.", bn: "তার একটা গাড়ি আছে।" },
       { en: "You have a nice bag.", bn: "তোমার একটা সুন্দর ব্যাগ আছে।" },
-      { en: "We have money.", bn: "আমাদের কাছে টাকা আছে।" }
+      { en: "We have money.", bn: "আমাদের কাছে টাকা আছে।" },
+      { en: "I have two sisters.", bn: "আমার দুই বোন আছে।" },
+      { en: "They have a big house.", bn: "তাদের একটা বড় বাড়ি আছে।" }
     ],
     fill: [
       { q: "I ___ a brother.", a: "have", opts: ["have", "has", "is"], bn: "আমার একটা ভাই আছে।" },
@@ -198,24 +200,22 @@ window.LESSONS = [
   },
 
   {
-    id: 5, emoji: "🎨", title: "The bus is big", bn: "বাসটা বড়",
+    id: 5, icon: "palette", title: "The bus is big", bn: "বাসটা বড়",
+    hl: ["big", "small", "new", "old", "red", "hot", "cold"],
     words: [
-      { en: "big", bn: "বড়", say: "বিগ", emoji: "🐘" },
-      { en: "small", bn: "ছোট", say: "স্মল", emoji: "🐭" },
-      { en: "new", bn: "নতুন", say: "নিউ", emoji: "✨" },
-      { en: "old", bn: "পুরনো", say: "ওল্ড", emoji: "🕰️" },
-      { en: "red", bn: "লাল", say: "রেড", emoji: "🔴" },
-      { en: "hot", bn: "গরম", say: "হট", emoji: "🔥" }
+      { en: "big", bn: "বড়", say: "বিগ", icon: "arrows-maximize", ex: ["The bus is big.", "বাসটা বড়।"] },
+      { en: "small", bn: "ছোট", say: "স্মল", icon: "arrows-minimize", ex: ["My bag is small.", "আমার ব্যাগটা ছোট।"] },
+      { en: "new", bn: "নতুন", say: "নিউ", icon: "sparkles", ex: ["I have a new phone.", "আমার একটা নতুন ফোন আছে।"] },
+      { en: "old", bn: "পুরনো", say: "ওল্ড", icon: "hourglass", ex: ["This car is old.", "এই গাড়িটা পুরনো।"] },
+      { en: "red", bn: "লাল", say: "রেড", icon: "palette", ex: ["The bus is red.", "বাসটা লাল।"] },
+      { en: "hot", bn: "গরম", say: "হট", icon: "flame", ex: ["The tea is hot.", "চা-টা গরম।"] }
     ],
     pattern: {
       rows: [
         { en: "The ___ is big", bn: "___টা বড়" },
         { en: "a big bus", bn: "একটা বড় বাস" }
       ],
-      compare: {
-        bn: [["বাসটা", "s"], ["বড়", "o"]],
-        en: [["The bus", "s"], ["is", "v"], ["big", "o"]]
-      },
+      compare: { bn: [["বাসটা", "s"], ["বড়", "o"]], en: [["The bus", "s"], ["is", "v"], ["big", "o"]] },
       points: [
         "“বাসটা” বোঝাতে ইংরেজিতে আগে <b>the</b> বসে: <b>the bus</b>।",
         "সুখবর! “কেমন” শব্দটা বাংলার মতোই আগে বসে: <b>a big bus</b> = একটা বড় বাস।",
@@ -228,7 +228,9 @@ window.LESSONS = [
       { en: "This is a red car.", bn: "এটা একটা লাল গাড়ি।" },
       { en: "The tea is hot.", bn: "চা-টা গরম।" },
       { en: "That truck is old.", bn: "ওই ট্রাকটা পুরনো।" },
-      { en: "I have a small bag.", bn: "আমার একটা ছোট ব্যাগ আছে।" }
+      { en: "I have a small bag.", bn: "আমার একটা ছোট ব্যাগ আছে।" },
+      { en: "It is very hot today.", bn: "আজ খুব গরম।" },
+      { en: "The water is cold.", bn: "পানিটা ঠান্ডা।" }
     ],
     fill: [
       { q: "The tea ___ hot.", a: "is", opts: ["is", "am", "are"], bn: "চা-টা গরম।" },
@@ -248,24 +250,22 @@ window.LESSONS = [
   },
 
   {
-    id: 6, emoji: "☕", title: "I want tea", bn: "আমি চা চাই",
+    id: 6, icon: "cup", title: "I want tea", bn: "আমি চা চাই",
+    hl: ["want", "to", "please"],
     words: [
-      { en: "want", bn: "চাই / চাওয়া", say: "ওয়ান্ট", emoji: "🙏" },
-      { en: "water", bn: "পানি", say: "ওয়াটার", emoji: "💧" },
-      { en: "tea", bn: "চা", say: "টি", emoji: "☕" },
-      { en: "rice", bn: "ভাত", say: "রাইস", emoji: "🍚" },
-      { en: "go", bn: "যাওয়া", say: "গো", emoji: "🚶" },
-      { en: "home", bn: "বাসা / বাড়ি", say: "হোম", emoji: "🏠" }
+      { en: "want", bn: "চাই / চাওয়া", say: "ওয়ান্ট", icon: "heart", ex: ["I want water.", "আমি পানি চাই।"] },
+      { en: "water", bn: "পানি", say: "ওয়াটার", icon: "droplet", ex: ["Water, please.", "পানি দিন, প্লিজ।"] },
+      { en: "tea", bn: "চা", say: "টি", icon: "cup", ex: ["I want tea.", "আমি চা চাই।"] },
+      { en: "rice", bn: "ভাত", say: "রাইস", icon: "bowl-chopsticks", ex: ["I want rice and fish.", "আমি ভাত আর মাছ চাই।"] },
+      { en: "go", bn: "যাওয়া", say: "গো", icon: "walk", ex: ["I want to go.", "আমি যেতে চাই।"] },
+      { en: "home", bn: "বাসা / বাড়ি", say: "হোম", icon: "home", ex: ["I want to go home.", "আমি বাসায় যেতে চাই।"] }
     ],
     pattern: {
       rows: [
         { en: "I want ___", bn: "আমি ___ চাই" },
         { en: "I want to go ___", bn: "আমি ___ যেতে চাই" }
       ],
-      compare: {
-        bn: [["আমি", "s"], ["পানি", "o"], ["চাই", "v"]],
-        en: [["I", "s"], ["want", "v"], ["water", "o"]]
-      },
+      compare: { bn: [["আমি", "s"], ["পানি", "o"], ["চাই", "v"]], en: [["I", "s"], ["want", "v"], ["water", "o"]] },
       points: [
         "বাংলায় “চাই” শেষে বসে। ইংরেজিতে <b>want</b> বসে <b>I</b> এর ঠিক পরে।",
         "কিছু করতে চাইলে: <b>want to</b> + কাজ → <b>I want to go.</b>",
@@ -278,7 +278,9 @@ window.LESSONS = [
       { en: "I want rice.", bn: "আমি ভাত চাই।" },
       { en: "I want to go home.", bn: "আমি বাসায় যেতে চাই।" },
       { en: "We want water.", bn: "আমরা পানি চাই।" },
-      { en: "I want a new phone.", bn: "আমি একটা নতুন ফোন চাই।" }
+      { en: "I want a new phone.", bn: "আমি একটা নতুন ফোন চাই।" },
+      { en: "I want to sleep.", bn: "আমি ঘুমাতে চাই।" },
+      { en: "I want to learn English.", bn: "আমি ইংরেজি শিখতে চাই।" }
     ],
     fill: [
       { q: "I ___ water.", a: "want", opts: ["want", "am", "is"], bn: "আমি পানি চাই।" },
@@ -298,21 +300,19 @@ window.LESSONS = [
   },
 
   {
-    id: 7, emoji: "🍽️", title: "I eat rice", bn: "আমি ভাত খাই",
+    id: 7, icon: "tools-kitchen-2", title: "I eat rice", bn: "আমি ভাত খাই",
+    hl: ["eat", "drink", "work", "sleep", "read", "play", "go"],
     words: [
-      { en: "eat", bn: "খাওয়া", say: "ইট", emoji: "🍽️" },
-      { en: "drink", bn: "পান করা (চা, পানি)", say: "ড্রিংক", emoji: "🥤" },
-      { en: "work", bn: "কাজ করা", say: "ওয়ার্ক", emoji: "🛠️" },
-      { en: "sleep", bn: "ঘুমানো", say: "স্লিপ", emoji: "😴" },
-      { en: "read", bn: "পড়া", say: "রিড", emoji: "📖" },
-      { en: "play", bn: "খেলা", say: "প্লে", emoji: "⚽" }
+      { en: "eat", bn: "খাওয়া", say: "ইট", icon: "tools-kitchen-2", ex: ["I eat rice.", "আমি ভাত খাই।"] },
+      { en: "drink", bn: "পান করা (চা, পানি)", say: "ড্রিংক", icon: "glass", ex: ["I drink water.", "আমি পানি খাই।"] },
+      { en: "work", bn: "কাজ করা", say: "ওয়ার্ক", icon: "briefcase", ex: ["I work every day.", "আমি প্রতিদিন কাজ করি।"] },
+      { en: "sleep", bn: "ঘুমানো", say: "স্লিপ", icon: "bed", ex: ["I sleep at night.", "আমি রাতে ঘুমাই।"] },
+      { en: "read", bn: "পড়া", say: "রিড", icon: "book", ex: ["I read the news.", "আমি খবর পড়ি।"] },
+      { en: "play", bn: "খেলা", say: "প্লে", icon: "ball-football", ex: ["We play football.", "আমরা ফুটবল খেলি।"] }
     ],
     pattern: {
       rows: [{ en: "I + কাজ + কী", bn: "আমি + কী + কাজ" }],
-      compare: {
-        bn: [["আমি", "s"], ["ভাত", "o"], ["খাই", "v"]],
-        en: [["I", "s"], ["eat", "v"], ["rice", "o"]]
-      },
+      compare: { bn: [["আমি", "s"], ["ভাত", "o"], ["খাই", "v"]], en: [["I", "s"], ["eat", "v"], ["rice", "o"]] },
       points: [
         "এটাই ইংরেজির সবচেয়ে বড় নিয়ম! বাংলায় কাজটা শেষে বসে, ইংরেজিতে <b>মাঝে</b>।",
         "মনে রাখো: <b>কে → কী করে → কী</b>। I → eat → rice।",
@@ -325,7 +325,9 @@ window.LESSONS = [
       { en: "I work every day.", bn: "আমি প্রতিদিন কাজ করি।" },
       { en: "We play football.", bn: "আমরা ফুটবল খেলি।" },
       { en: "I sleep at night.", bn: "আমি রাতে ঘুমাই।" },
-      { en: "You read a book.", bn: "তুমি একটা বই পড়ো।" }
+      { en: "You read a book.", bn: "তুমি একটা বই পড়ো।" },
+      { en: "I go to work.", bn: "আমি কাজে যাই।" },
+      { en: "They eat fish.", bn: "তারা মাছ খায়।" }
     ],
     fill: [
       { q: "I ___ rice.", a: "eat", opts: ["eat", "drink", "sleep"], bn: "আমি ভাত খাই।" },
@@ -345,24 +347,22 @@ window.LESSONS = [
   },
 
   {
-    id: 8, emoji: "👨‍🍳", title: "He eats rice", bn: "সে ভাত খায়",
+    id: 8, icon: "chef-hat", title: "He eats rice", bn: "সে ভাত খায়",
+    hl: ["eats", "cooks", "drives", "goes", "drinks", "plays", "sleeps", "works"],
     words: [
-      { en: "every day", bn: "প্রতিদিন", say: "এভরি ডে", emoji: "📅" },
-      { en: "morning", bn: "সকাল", say: "মর্নিং", emoji: "🌅" },
-      { en: "night", bn: "রাত", say: "নাইট", emoji: "🌙" },
-      { en: "office", bn: "অফিস", say: "অফিস", emoji: "🏢" },
-      { en: "drive", bn: "গাড়ি চালানো", say: "ড্রাইভ", emoji: "🚗" },
-      { en: "cook", bn: "রান্না করা", say: "কুক", emoji: "🍳" }
+      { en: "every day", bn: "প্রতিদিন", say: "এভরি ডে", icon: "calendar", ex: ["She cooks every day.", "সে প্রতিদিন রান্না করে।"] },
+      { en: "morning", bn: "সকাল", say: "মর্নিং", icon: "sunrise", ex: ["Good morning!", "শুভ সকাল!"] },
+      { en: "night", bn: "রাত", say: "নাইট", icon: "moon", ex: ["Good night!", "শুভ রাত্রি!"] },
+      { en: "office", bn: "অফিস", say: "অফিস", icon: "building", ex: ["He goes to the office.", "সে অফিসে যায়।"] },
+      { en: "drive", bn: "গাড়ি চালানো", say: "ড্রাইভ", icon: "steering-wheel", ex: ["My father drives a bus.", "আমার বাবা বাস চালায়।"] },
+      { en: "cook", bn: "রান্না করা", say: "কুক", icon: "chef-hat", ex: ["My mother cooks rice.", "আমার মা ভাত রান্না করে।"] }
     ],
     pattern: {
       rows: [
         { en: "I eat → He eats", bn: "আমি খাই → সে খায়" },
         { en: "I go → She goes", bn: "আমি যাই → সে যায়" }
       ],
-      compare: {
-        bn: [["সে", "s"], ["ভাত", "o"], ["খায়", "v"]],
-        en: [["He", "s"], ["eats", "v"], ["rice", "o"]]
-      },
+      compare: { bn: [["সে", "s"], ["ভাত", "o"], ["খায়", "v"]], en: [["He", "s"], ["eats", "v"], ["rice", "o"]] },
       points: [
         "<b>He, She</b> বা একজনের নাম থাকলে কাজের শেষে <b>s</b> যোগ হয়: eat → <b>eats</b>।",
         "বাংলাতেও বদলায়: আমি খাই → সে খায়। ঠিক একই রকম!",
@@ -375,7 +375,9 @@ window.LESSONS = [
       { en: "My father drives a bus.", bn: "আমার বাবা বাস চালায়।" },
       { en: "He goes to the office.", bn: "সে অফিসে যায়।" },
       { en: "She drinks tea in the morning.", bn: "সে সকালে চা খায়।" },
-      { en: "Rafi plays football.", bn: "রাফি ফুটবল খেলে।" }
+      { en: "Rafi plays football.", bn: "রাফি ফুটবল খেলে।" },
+      { en: "She works in an office.", bn: "সে একটা অফিসে কাজ করে।" },
+      { en: "He sleeps at night.", bn: "সে রাতে ঘুমায়।" }
     ],
     fill: [
       { q: "He ___ rice.", a: "eats", opts: ["eat", "eats"], bn: "সে ভাত খায়।" },
@@ -395,14 +397,15 @@ window.LESSONS = [
   },
 
   {
-    id: 9, emoji: "🙅", title: "I don't like milk", bn: "আমি দুধ পছন্দ করি না",
+    id: 9, icon: "ban", title: "I don't like milk", bn: "আমি দুধ পছন্দ করি না",
+    hl: ["don't", "doesn't", "not"],
     words: [
-      { en: "like", bn: "পছন্দ করা", say: "লাইক", emoji: "👍" },
-      { en: "don't", bn: "না (I, you, we এর সাথে)", say: "ডোন্ট", emoji: "🚫" },
-      { en: "doesn't", bn: "না (he, she এর সাথে)", say: "ডাজন্ট", emoji: "⛔" },
-      { en: "not", bn: "না", say: "নট", emoji: "❌" },
-      { en: "milk", bn: "দুধ", say: "মিল্ক", emoji: "🥛" },
-      { en: "fish", bn: "মাছ", say: "ফিশ", emoji: "🐟" }
+      { en: "like", bn: "পছন্দ করা", say: "লাইক", icon: "thumb-up", ex: ["I like tea.", "আমি চা পছন্দ করি।"] },
+      { en: "don't", bn: "না (I, you, we এর সাথে)", say: "ডোন্ট", icon: "ban", ex: ["I don't know.", "আমি জানি না।"] },
+      { en: "doesn't", bn: "না (he, she এর সাথে)", say: "ডাজন্ট", icon: "circle-minus", ex: ["She doesn't eat fish.", "সে মাছ খায় না।"] },
+      { en: "not", bn: "না", say: "নট", icon: "x", ex: ["I am not tired.", "আমি ক্লান্ত না।"] },
+      { en: "milk", bn: "দুধ", say: "মিল্ক", icon: "milk", ex: ["I don't like milk.", "আমি দুধ পছন্দ করি না।"] },
+      { en: "fish", bn: "মাছ", say: "ফিশ", icon: "fish", ex: ["I like fish.", "আমি মাছ পছন্দ করি।"] }
     ],
     pattern: {
       rows: [
@@ -410,10 +413,7 @@ window.LESSONS = [
         { en: "He doesn't + কাজ", bn: "সে ... করে না" },
         { en: "I am not ___", bn: "আমি ___ না" }
       ],
-      compare: {
-        bn: [["আমি", "s"], ["দুধ", "o"], ["পছন্দ করি না", "v"]],
-        en: [["I", "s"], ["don't like", "v"], ["milk", "o"]]
-      },
+      compare: { bn: [["আমি", "s"], ["দুধ", "o"], ["পছন্দ করি না", "v"]], en: [["I", "s"], ["don't like", "v"], ["milk", "o"]] },
       points: [
         "বাংলায় “না” শেষে বসে। ইংরেজিতে <b>don't</b> বসে কাজের আগে।",
         "<b>He / She</b> হলে <b>doesn't</b>। তখন কাজে আর s লাগে না: He doesn't <b>eat</b>।",
@@ -426,7 +426,9 @@ window.LESSONS = [
       { en: "He doesn't drink tea.", bn: "সে চা খায় না।" },
       { en: "She doesn't drive.", bn: "সে গাড়ি চালায় না।" },
       { en: "I am not tired.", bn: "আমি ক্লান্ত না।" },
-      { en: "This is not my bag.", bn: "এটা আমার ব্যাগ না।" }
+      { en: "This is not my bag.", bn: "এটা আমার ব্যাগ না।" },
+      { en: "I don't know.", bn: "আমি জানি না।" },
+      { en: "We don't work on Friday.", bn: "আমরা শুক্রবারে কাজ করি না।" }
     ],
     fill: [
       { q: "I ___ like milk.", a: "don't", opts: ["don't", "doesn't", "not"], bn: "আমি দুধ পছন্দ করি না।" },
@@ -446,14 +448,15 @@ window.LESSONS = [
   },
 
   {
-    id: 10, emoji: "❓", title: "Do you like tea?", bn: "তুমি কি চা পছন্দ করো?",
+    id: 10, icon: "help-circle", title: "Do you like tea?", bn: "তুমি কি চা পছন্দ করো?",
+    hl: ["Do", "Does", "Are", "Is", "Yes", "No"],
     words: [
-      { en: "do", bn: "প্রশ্ন শুরু (I, you, we)", say: "ডু", emoji: "❓" },
-      { en: "does", bn: "প্রশ্ন শুরু (he, she)", say: "ডাজ", emoji: "❔" },
-      { en: "yes", bn: "হ্যাঁ", say: "ইয়েস", emoji: "✅" },
-      { en: "no", bn: "না", say: "নো", emoji: "❎" },
-      { en: "know", bn: "জানা / চেনা", say: "নো", emoji: "🧠" },
-      { en: "understand", bn: "বোঝা", say: "আন্ডারস্ট্যান্ড", emoji: "💡" }
+      { en: "do", bn: "প্রশ্ন শুরু (I, you, we)", say: "ডু", icon: "question-mark", ex: ["Do you like tea?", "তুমি কি চা পছন্দ করো?"] },
+      { en: "does", bn: "প্রশ্ন শুরু (he, she)", say: "ডাজ", icon: "help-circle", ex: ["Does he work here?", "সে কি এখানে কাজ করে?"] },
+      { en: "yes", bn: "হ্যাঁ", say: "ইয়েস", icon: "circle-check", ex: ["Yes, I do.", "হ্যাঁ, করি।"] },
+      { en: "no", bn: "না", say: "নো", icon: "circle-x", ex: ["No, I don't.", "না, করি না।"] },
+      { en: "know", bn: "জানা / চেনা", say: "নো", icon: "brain", ex: ["Do you know him?", "তুমি কি তাকে চেনো?"] },
+      { en: "understand", bn: "বোঝা", say: "আন্ডারস্ট্যান্ড", icon: "bulb", ex: ["I understand.", "আমি বুঝেছি।"] }
     ],
     pattern: {
       rows: [
@@ -461,10 +464,7 @@ window.LESSONS = [
         { en: "Yes, I do. / No, I don't.", bn: "হ্যাঁ। / না।" },
         { en: "Are you ___?", bn: "তুমি কি ___?" }
       ],
-      compare: {
-        bn: [["তুমি কি", "s"], ["চা", "o"], ["পছন্দ করো?", "v"]],
-        en: [["Do", "q"], ["you", "s"], ["like", "v"], ["tea?", "o"]]
-      },
+      compare: { bn: [["তুমি কি", "s"], ["চা", "o"], ["পছন্দ করো?", "v"]], en: [["Do", "q"], ["you", "s"], ["like", "v"], ["tea?", "o"]] },
       points: [
         "বাংলায় প্রশ্নে “কি” যোগ করি। ইংরেজিতে একদম শুরুতে <b>Do</b> বসাই।",
         "<b>He / She</b> হলে <b>Does</b>: Does he drive?",
@@ -477,7 +477,9 @@ window.LESSONS = [
       { en: "Do you understand?", bn: "তুমি কি বুঝতে পারছ?" },
       { en: "Do you know Rafi?", bn: "তুমি কি রাফিকে চেনো?" },
       { en: "Does he drive a bus?", bn: "সে কি বাস চালায়?" },
-      { en: "Are you tired?", bn: "তুমি কি ক্লান্ত?" }
+      { en: "Are you tired?", bn: "তুমি কি ক্লান্ত?" },
+      { en: "Does she cook?", bn: "সে কি রান্না করে?" },
+      { en: "Is he your brother?", bn: "সে কি তোমার ভাই?" }
     ],
     fill: [
       { q: "___ you like fish?", a: "Do", opts: ["Do", "Does", "Is"], bn: "তুমি কি মাছ পছন্দ করো?" },
@@ -497,14 +499,15 @@ window.LESSONS = [
   },
 
   {
-    id: 11, emoji: "📍", title: "Where is the bus?", bn: "বাস কোথায়?",
+    id: 11, icon: "map-pin", title: "Where is the bus?", bn: "বাস কোথায়?",
+    hl: ["What", "Where", "Who", "When"],
     words: [
-      { en: "what", bn: "কী", say: "হোয়াট", emoji: "🤔" },
-      { en: "where", bn: "কোথায়", say: "হোয়্যার", emoji: "📍" },
-      { en: "who", bn: "কে", say: "হু", emoji: "🧑" },
-      { en: "when", bn: "কখন", say: "হোয়েন", emoji: "⏰" },
-      { en: "here", bn: "এখানে", say: "হিয়ার", emoji: "⬇️" },
-      { en: "there", bn: "ওখানে", say: "দেয়ার", emoji: "↗️" }
+      { en: "what", bn: "কী", say: "হোয়াট", icon: "message-circle-question", ex: ["What is this?", "এটা কী?"] },
+      { en: "where", bn: "কোথায়", say: "হোয়্যার", icon: "map-pin", ex: ["Where is my phone?", "আমার ফোন কোথায়?"] },
+      { en: "who", bn: "কে", say: "হু", icon: "user-question", ex: ["Who is she?", "সে কে?"] },
+      { en: "when", bn: "কখন", say: "হোয়েন", icon: "clock", ex: ["When do you eat?", "তুমি কখন খাও?"] },
+      { en: "here", bn: "এখানে", say: "হিয়ার", icon: "current-location", ex: ["I am here.", "আমি এখানে।"] },
+      { en: "there", bn: "ওখানে", say: "দেয়ার", icon: "arrow-up-right", ex: ["The bus is there.", "বাস ওখানে।"] }
     ],
     pattern: {
       rows: [
@@ -512,10 +515,7 @@ window.LESSONS = [
         { en: "What is ___?", bn: "___ কী?" },
         { en: "Where do you ___?", bn: "তুমি কোথায় ___?" }
       ],
-      compare: {
-        bn: [["বাস", "s"], ["কোথায়?", "q"]],
-        en: [["Where", "q"], ["is", "v"], ["the bus?", "s"]]
-      },
+      compare: { bn: [["বাস", "s"], ["কোথায়?", "q"]], en: [["Where", "q"], ["is", "v"], ["the bus?", "s"]] },
       points: [
         "প্রশ্নের শব্দ (<b>What, Where, Who, When</b>) সবসময় একদম শুরুতে বসে।",
         "বাংলায় এগুলো মাঝে বা শেষে বসে: বাস কোথায়? → <b>Where is the bus?</b>"
@@ -527,7 +527,9 @@ window.LESSONS = [
       { en: "The bus is there.", bn: "বাস ওখানে।" },
       { en: "Who is he?", bn: "সে কে?" },
       { en: "When do you go home?", bn: "তুমি কখন বাসায় যাও?" },
-      { en: "Where do you work?", bn: "তুমি কোথায় কাজ করো?" }
+      { en: "Where do you work?", bn: "তুমি কোথায় কাজ করো?" },
+      { en: "What is this?", bn: "এটা কী?" },
+      { en: "What do you want?", bn: "তুমি কী চাও?" }
     ],
     fill: [
       { q: "___ is your name?", a: "What", opts: ["What", "Where", "Who"], bn: "তোমার নাম কী?" },
@@ -547,14 +549,15 @@ window.LESSONS = [
   },
 
   {
-    id: 12, emoji: "💪", title: "I can speak English", bn: "আমি ইংরেজি বলতে পারি",
+    id: 12, icon: "barbell", title: "I can speak English", bn: "আমি ইংরেজি বলতে পারি",
+    hl: ["can", "can't", "Can"],
     words: [
-      { en: "can", bn: "পারা", say: "ক্যান", emoji: "💪" },
-      { en: "can't", bn: "পারি না", say: "ক্যান্ট", emoji: "🚫" },
-      { en: "help", bn: "সাহায্য করা", say: "হেল্প", emoji: "🤝" },
-      { en: "speak", bn: "বলা (ভাষা)", say: "স্পিক", emoji: "🗣️" },
-      { en: "swim", bn: "সাঁতার কাটা", say: "সুইম", emoji: "🏊" },
-      { en: "English", bn: "ইংরেজি", say: "ইংলিশ", emoji: "🔤" }
+      { en: "can", bn: "পারা", say: "ক্যান", icon: "barbell", ex: ["I can drive.", "আমি গাড়ি চালাতে পারি।"] },
+      { en: "can't", bn: "পারি না", say: "ক্যান্ট", icon: "barbell-off", ex: ["I can't swim.", "আমি সাঁতার কাটতে পারি না।"] },
+      { en: "help", bn: "সাহায্য করা", say: "হেল্প", icon: "heart-handshake", ex: ["Can you help me?", "তুমি কি আমাকে সাহায্য করতে পারো?"] },
+      { en: "speak", bn: "বলা (ভাষা)", say: "স্পিক", icon: "speakerphone", ex: ["I can speak Bangla.", "আমি বাংলা বলতে পারি।"] },
+      { en: "swim", bn: "সাঁতার কাটা", say: "সুইম", icon: "swimming", ex: ["He can swim.", "সে সাঁতার কাটতে পারে।"] },
+      { en: "English", bn: "ইংরেজি", say: "ইংলিশ", icon: "language", ex: ["I am learning English.", "আমি ইংরেজি শিখছি।"] }
     ],
     pattern: {
       rows: [
@@ -562,10 +565,7 @@ window.LESSONS = [
         { en: "I can't + কাজ", bn: "আমি ... পারি না" },
         { en: "Can you ___?", bn: "তুমি কি ___ পারো?" }
       ],
-      compare: {
-        bn: [["আমি", "s"], ["গাড়ি", "o"], ["চালাতে পারি", "v"]],
-        en: [["I", "s"], ["can drive", "v"], ["a car", "o"]]
-      },
+      compare: { bn: [["আমি", "s"], ["গাড়ি", "o"], ["চালাতে পারি", "v"]], en: [["I", "s"], ["can drive", "v"], ["a car", "o"]] },
       points: [
         "<b>can</b> এর পরে কাজটা একদম সাধারণ থাকে। He can <b>drive</b> (drives নয়)।",
         "প্রশ্ন করতে <b>Can</b> শুরুতে আনো: <b>Can you help me?</b>"
@@ -577,7 +577,9 @@ window.LESSONS = [
       { en: "He can swim.", bn: "সে সাঁতার কাটতে পারে।" },
       { en: "I can't swim.", bn: "আমি সাঁতার কাটতে পারি না।" },
       { en: "Can you help me?", bn: "তুমি কি আমাকে সাহায্য করতে পারো?" },
-      { en: "Yes, I can.", bn: "হ্যাঁ, পারি।" }
+      { en: "Yes, I can.", bn: "হ্যাঁ, পারি।" },
+      { en: "I can speak Bangla.", bn: "আমি বাংলা বলতে পারি।" },
+      { en: "Can you speak slowly?", bn: "তুমি কি ধীরে বলতে পারো?" }
     ],
     fill: [
       { q: "He can ___ a car.", a: "drive", opts: ["drive", "drives"], bn: "সে গাড়ি চালাতে পারে।" },
