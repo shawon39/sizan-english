@@ -87,6 +87,13 @@ mark.hl { background: var(--hl); color: var(--hl-ink); border-radius: 6px; paddi
 .pill-btn[aria-pressed="true"] .ic { color: var(--accent); }
 .icon-btn { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--muted); }
 .icon-btn .ic { width: 22px; height: 22px; }
+.top-actions { display: flex; align-items: center; gap: 4px; }
+.settings { width: min(400px, calc(100% - 32px)); border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); padding: 18px; box-shadow: var(--shadow); }
+.settings::backdrop { background: rgba(0,0,0,.35); }
+.settings h3 { font-size: 17px; }
+.set-row { display: flex; gap: 12px; align-items: flex-start; padding-top: 6px; cursor: pointer; }
+.set-row input { width: 22px; height: 22px; margin-top: 2px; flex: none; accent-color: var(--primary); }
+.set-row small { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 2px; }
 
 .tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; background: var(--card); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
 .tabs .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -128,10 +135,6 @@ h1, h2, h3 { margin: 0; line-height: 1.3; }
 .hero .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 14px; opacity: .95; }
 .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
 .hero .meta .ic { width: 17px; height: 17px; }
-.today { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 14px; font-weight: 600; }
-.today i { width: 26px; height: 8px; border-radius: 99px; background: rgba(255,255,255,.3); }
-.today i.on { background: #fff; }
-.today span { margin-left: 4px; }
 .btn.light { position: relative; z-index: 1; margin-top: 16px; background: #fff; color: #0B6F53; box-shadow: 0 3px 0 rgba(0,0,0,.12); }
 .hero.rest .btn.light { color: #3B5BDB; }
 
@@ -159,6 +162,7 @@ h1, h2, h3 { margin: 0; line-height: 1.3; }
 .lesson-row.done .state { background: var(--good-soft); color: var(--good); }
 .lesson-row.current { border: 2px solid var(--primary); box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 18%, transparent); }
 .lesson-row.current .state { background: var(--primary); color: var(--primary-ink); padding: 6px 14px; }
+.lesson-row.open .state { background: var(--primary-soft); color: var(--primary-dark); }
 .lesson-row.locked { cursor: not-allowed; }
 .lesson-row.locked .tile-ic { filter: grayscale(1); opacity: .5; }
 .lesson-row.locked .lr-txt { opacity: .6; }
