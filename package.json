@@ -1,0 +1,8 @@
+{
+  "name": "sizan-english",
+  "private": true,
+  "description": "Daily English lessons for a Bangla-speaking beginner. Static site in public/, one Netlify Function for saved progress.",
+  "dependencies": {
+    "@netlify/blobs": "11.1.3"
+  }
+}

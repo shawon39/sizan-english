@@ -2,6 +2,7 @@
    compare roles: s = who (কে), v = action/being (কাজ), o = what/how (কী/কেমন), q = question word (প্রশ্ন)
    icon = Tabler icon name (see icons.js). hl = pattern words highlighted in examples.
    word.ex = [English example, Bangla meaning]
+   fill.why = short Bangla rule shown after a wrong answer
 */
 window.LESSONS = [
   {
@@ -35,8 +36,8 @@ window.LESSONS = [
       { en: "I am ready.", bn: "আমি তৈরি।" }
     ],
     fill: [
-      { q: "I ___ fine.", a: "am", opts: ["am", "is", "are"], bn: "আমি ভালো আছি।" },
-      { q: "My ___ is Sizan.", a: "name", opts: ["name", "happy", "fine"], bn: "আমার নাম সিজান।" }
+      { q: "I ___ fine.", a: "am", opts: ["am", "is", "are"], bn: "আমি ভালো আছি।", why: "<b>I</b> এর সাথে সবসময় <b>am</b> বসে।" },
+      { q: "My ___ is Sizan.", a: "name", opts: ["name", "happy", "fine"], bn: "আমার নাম সিজান।", why: "“আমার নাম” = <b>My name</b>।" }
     ],
     story: {
       title: "Meet Sizan", bn: "সিজানের সাথে পরিচয়",
@@ -85,8 +86,8 @@ window.LESSONS = [
       { en: "She is at home.", bn: "সে বাসায় আছে।" }
     ],
     fill: [
-      { q: "He ___ tired.", a: "is", opts: ["am", "is", "are"], bn: "সে ক্লান্ত।" },
-      { q: "You ___ my friend.", a: "are", opts: ["am", "is", "are"], bn: "তুমি আমার বন্ধু।" }
+      { q: "He ___ tired.", a: "is", opts: ["am", "is", "are"], bn: "সে ক্লান্ত।", why: "<b>He / She</b> এর সাথে <b>is</b> বসে।" },
+      { q: "You ___ my friend.", a: "are", opts: ["am", "is", "are"], bn: "তুমি আমার বন্ধু।", why: "<b>You</b> এর সাথে <b>are</b> বসে।" }
     ],
     story: {
       title: "My Family", bn: "আমার পরিবার",
@@ -134,8 +135,8 @@ window.LESSONS = [
       { en: "That is a shop.", bn: "ওটা একটা দোকান।" }
     ],
     fill: [
-      { q: "This ___ a truck.", a: "is", opts: ["is", "am", "are"], bn: "এটা একটা ট্রাক।" },
-      { q: "This is ___ phone.", a: "my", opts: ["my", "I", "am"], bn: "এটা আমার ফোন।" }
+      { q: "This ___ a truck.", a: "is", opts: ["is", "am", "are"], bn: "এটা একটা ট্রাক।", why: "<b>This / That</b> এর সাথে <b>is</b> বসে।" },
+      { q: "This is ___ phone.", a: "my", opts: ["my", "I", "am"], bn: "এটা আমার ফোন।", why: "“আমার” = <b>my</b>। “আমি” = I।" }
     ],
     story: {
       title: "At the Bus Stop", bn: "বাস স্ট্যান্ডে",
@@ -183,8 +184,8 @@ window.LESSONS = [
       { en: "They have a big house.", bn: "তাদের একটা বড় বাড়ি আছে।" }
     ],
     fill: [
-      { q: "I ___ a brother.", a: "have", opts: ["have", "has", "is"], bn: "আমার একটা ভাই আছে।" },
-      { q: "She ___ a car.", a: "has", opts: ["have", "has", "am"], bn: "তার একটা গাড়ি আছে।" }
+      { q: "I ___ a brother.", a: "have", opts: ["have", "has", "is"], bn: "আমার একটা ভাই আছে।", why: "<b>I</b> এর সাথে <b>have</b> বসে।" },
+      { q: "She ___ a car.", a: "has", opts: ["have", "has", "am"], bn: "তার একটা গাড়ি আছে।", why: "<b>He / She</b> এর সাথে have না, <b>has</b> বসে।" }
     ],
     story: {
       title: "My Brother and Sister", bn: "আমার ভাই আর বোন",
@@ -233,8 +234,8 @@ window.LESSONS = [
       { en: "The water is cold.", bn: "পানিটা ঠান্ডা।" }
     ],
     fill: [
-      { q: "The tea ___ hot.", a: "is", opts: ["is", "am", "are"], bn: "চা-টা গরম।" },
-      { q: "I have a ___ phone.", a: "new", opts: ["new", "is", "am"], bn: "আমার একটা নতুন ফোন আছে।" }
+      { q: "The tea ___ hot.", a: "is", opts: ["is", "am", "are"], bn: "চা-টা গরম।", why: "একটা জিনিস হলে <b>is</b> বসে: The tea <b>is</b> hot." },
+      { q: "I have a ___ phone.", a: "new", opts: ["new", "is", "am"], bn: "আমার একটা নতুন ফোন আছে।", why: "কেমন জিনিস, সেটা নামের আগে বসে: <b>new</b> phone।" }
     ],
     story: {
       title: "My New Phone", bn: "আমার নতুন ফোন",
@@ -283,8 +284,8 @@ window.LESSONS = [
       { en: "I want to learn English.", bn: "আমি ইংরেজি শিখতে চাই।" }
     ],
     fill: [
-      { q: "I ___ water.", a: "want", opts: ["want", "am", "is"], bn: "আমি পানি চাই।" },
-      { q: "I want to ___ home.", a: "go", opts: ["go", "have", "is"], bn: "আমি বাসায় যেতে চাই।" }
+      { q: "I ___ water.", a: "want", opts: ["want", "am", "is"], bn: "আমি পানি চাই।", why: "“চাই” = <b>want</b>।" },
+      { q: "I want to ___ home.", a: "go", opts: ["go", "have", "is"], bn: "আমি বাসায় যেতে চাই।", why: "<b>want to</b> এর পরে কাজের শব্দ বসে: <b>go</b>।" }
     ],
     story: {
       title: "At the Tea Stall", bn: "চায়ের দোকানে",
@@ -330,8 +331,8 @@ window.LESSONS = [
       { en: "They eat fish.", bn: "তারা মাছ খায়।" }
     ],
     fill: [
-      { q: "I ___ rice.", a: "eat", opts: ["eat", "drink", "sleep"], bn: "আমি ভাত খাই।" },
-      { q: "I drink ___.", a: "tea", opts: ["tea", "rice", "bus"], bn: "আমি চা খাই।" }
+      { q: "I ___ rice.", a: "eat", opts: ["eat", "drink", "sleep"], bn: "আমি ভাত খাই।", why: "ভাত খাই = <b>eat</b> rice। পানীয় হলে drink।" },
+      { q: "I drink ___.", a: "tea", opts: ["tea", "rice", "bus"], bn: "আমি চা খাই।", why: "<b>drink</b> এর পরে পানীয় বসে: <b>tea</b>।" }
     ],
     story: {
       title: "My Day", bn: "আমার দিন",
@@ -380,8 +381,8 @@ window.LESSONS = [
       { en: "He sleeps at night.", bn: "সে রাতে ঘুমায়।" }
     ],
     fill: [
-      { q: "He ___ rice.", a: "eats", opts: ["eat", "eats"], bn: "সে ভাত খায়।" },
-      { q: "I ___ tea.", a: "drink", opts: ["drink", "drinks"], bn: "আমি চা খাই।" }
+      { q: "He ___ rice.", a: "eats", opts: ["eat", "eats"], bn: "সে ভাত খায়।", why: "<b>He / She</b> হলে কাজের শেষে <b>s</b> বসে: eat → <b>eats</b>।" },
+      { q: "I ___ tea.", a: "drink", opts: ["drink", "drinks"], bn: "আমি চা খাই।", why: "<b>I</b> এর সাথে কাজের শেষে s বসে না: <b>drink</b>।" }
     ],
     story: {
       title: "Rafi's Day", bn: "রাফির দিন",
@@ -431,8 +432,8 @@ window.LESSONS = [
       { en: "We don't work on Friday.", bn: "আমরা শুক্রবারে কাজ করি না।" }
     ],
     fill: [
-      { q: "I ___ like milk.", a: "don't", opts: ["don't", "doesn't", "not"], bn: "আমি দুধ পছন্দ করি না।" },
-      { q: "He ___ drink tea.", a: "doesn't", opts: ["don't", "doesn't", "not"], bn: "সে চা খায় না।" }
+      { q: "I ___ like milk.", a: "don't", opts: ["don't", "doesn't", "not"], bn: "আমি দুধ পছন্দ করি না।", why: "<b>I / You</b> এর সাথে “না” বলতে <b>don't</b>।" },
+      { q: "He ___ drink tea.", a: "doesn't", opts: ["don't", "doesn't", "not"], bn: "সে চা খায় না।", why: "<b>He / She</b> এর সাথে “না” বলতে <b>doesn't</b>।" }
     ],
     story: {
       title: "Food We Like", bn: "আমাদের পছন্দের খাবার",
@@ -482,8 +483,8 @@ window.LESSONS = [
       { en: "Is he your brother?", bn: "সে কি তোমার ভাই?" }
     ],
     fill: [
-      { q: "___ you like fish?", a: "Do", opts: ["Do", "Does", "Is"], bn: "তুমি কি মাছ পছন্দ করো?" },
-      { q: "___ she cook?", a: "Does", opts: ["Do", "Does", "Are"], bn: "সে কি রান্না করে?" }
+      { q: "___ you like fish?", a: "Do", opts: ["Do", "Does", "Is"], bn: "তুমি কি মাছ পছন্দ করো?", why: "<b>you</b> দিয়ে প্রশ্ন করলে শুরুতে <b>Do</b>।" },
+      { q: "___ she cook?", a: "Does", opts: ["Do", "Does", "Are"], bn: "সে কি রান্না করে?", why: "<b>he / she</b> দিয়ে প্রশ্ন করলে শুরুতে <b>Does</b>।" }
     ],
     story: {
       title: "Tea Stall Talk", bn: "চায়ের দোকানে কথা",
@@ -532,8 +533,8 @@ window.LESSONS = [
       { en: "What do you want?", bn: "তুমি কী চাও?" }
     ],
     fill: [
-      { q: "___ is your name?", a: "What", opts: ["What", "Where", "Who"], bn: "তোমার নাম কী?" },
-      { q: "___ is the bus? It is there.", a: "Where", opts: ["What", "Where", "Who"], bn: "বাস কোথায়? ওটা ওখানে।" }
+      { q: "___ is your name?", a: "What", opts: ["What", "Where", "Who"], bn: "তোমার নাম কী?", why: "“কী” = <b>What</b>।" },
+      { q: "___ is the bus? It is there.", a: "Where", opts: ["What", "Where", "Who"], bn: "বাস কোথায়? ওটা ওখানে।", why: "“কোথায়” = <b>Where</b>।" }
     ],
     story: {
       title: "At the Bus Stand", bn: "বাস স্ট্যান্ডে",
@@ -582,8 +583,8 @@ window.LESSONS = [
       { en: "Can you speak slowly?", bn: "তুমি কি ধীরে বলতে পারো?" }
     ],
     fill: [
-      { q: "He can ___ a car.", a: "drive", opts: ["drive", "drives"], bn: "সে গাড়ি চালাতে পারে।" },
-      { q: "___ you help me?", a: "Can", opts: ["Can", "Is", "Does"], bn: "তুমি কি আমাকে সাহায্য করতে পারো?" }
+      { q: "He can ___ a car.", a: "drive", opts: ["drive", "drives"], bn: "সে গাড়ি চালাতে পারে।", why: "<b>can</b> এর পরে কাজের শব্দে s বসে না: <b>drive</b>।" },
+      { q: "___ you help me?", a: "Can", opts: ["Can", "Is", "Does"], bn: "তুমি কি আমাকে সাহায্য করতে পারো?", why: "“পারো?” প্রশ্ন শুরু হয় <b>Can</b> দিয়ে।" }
     ],
     story: {
       title: "I Am Learning", bn: "আমি শিখছি",
