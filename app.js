@@ -1,7 +1,6 @@
 (() => {
   "use strict";
   const NAME = "Sizan";
-  const FREE_LESSONS = 3;
   const LESSONS = window.LESSONS;
   const ic = window.ic;
   const app = document.getElementById("app");
@@ -31,7 +30,7 @@
 
   /* ---------------- storage ---------------- */
   const KEY = "sizan-english-v1";
-  const defaults = { done: {}, streak: 0, lastDay: null, words: {}, sentences: [], slow: false, hideHowto: false, dailyLock: true };
+  const defaults = { done: {}, streak: 0, lastDay: null, words: {}, sentences: [], slow: false, hideHowto: false };
   let state;
   try { state = Object.assign({}, defaults, JSON.parse(localStorage.getItem(KEY)) || {}); } catch (e) { state = Object.assign({}, defaults); }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* private mode: progress lives for this visit only */ } }
@@ -39,11 +38,6 @@
   const isDone = (id) => !!state.done[id];
   const firstDay = (id) => state.done[id] && (state.done[id].first || state.done[id].day);
   const newToday = () => LESSONS.filter((l) => firstDay(l.id) === dayStr()).length;
-  // Lessons 1-3 are always open. After that, a lesson opens the day after the previous one was first finished.
-  const gated = (id) => state.dailyLock && id > FREE_LESSONS;
-  const unlocked = (id) => isDone(id) || !gated(id) || (isDone(id - 1) && firstDay(id - 1) < dayStr());
-  const waitingForTomorrow = (id) => !unlocked(id) && isDone(id - 1);
-  const lockMsg = (id) => waitingForTomorrow(id) ? "আজকের পাঠ শেষ। এই পাঠ কাল খুলবে।" : "আগের পাঠ শেষ করলে এটা খুলবে।";
   const currentLesson = () => LESSONS.find((l) => !isDone(l.id)) || null;
   const doneCount = () => LESSONS.filter((l) => isDone(l.id)).length;
   const wordCount = () => Object.keys(state.words).length;
@@ -107,7 +101,7 @@
     return `
       <header class="topbar"><div class="wrap">
         <a class="brand" href="#/"><img src="icon.svg" alt="" width="32" height="32"><span class="en">${NAME} <b>English</b></span></a>
-        <div class="top-actions">${slowBtn()}<button class="icon-btn" data-act="settings" aria-label="সেটিংস">${ic("settings")}</button></div>
+        <div class="top-actions">${slowBtn()}</div>
       </div></header>
       <main class="wrap page">${inner}</main>
       <nav class="tabs" aria-label="মেনু"><div class="wrap">
@@ -122,7 +116,7 @@
     const n = newToday();
     const hr = new Date().getHours();
     const greet = hr < 12 ? "শুভ সকাল" : hr < 17 ? "শুভ দুপুর" : "শুভ সন্ধ্যা";
-    const sub = cur && waitingForTomorrow(cur.id) ? "আজকের পাঠ শেষ। দারুণ কাজ!" : n ? "খুব ভালো চলছে! চাইলে আরেকটা পাঠ করো।" : "চলো আজকে একটু ইংরেজি শিখি।";
+    const sub = n ? "খুব ভালো চলছে! চাইলে আরেকটা পাঠ করো।" : "চলো আজকে একটু ইংরেজি শিখি।";
     const howto = state.hideHowto ? "" : `
       <div class="card howto">
         <div class="howto-head"><h3>কিভাবে শিখবে?</h3><button class="icon-btn" data-act="hide-howto" aria-label="বন্ধ করো">${ic("x")}</button></div>
@@ -139,11 +133,6 @@
         <span class="tag">সব পাঠ শেষ</span><h2 class="en">Great job, ${NAME}!</h2>
         <div class="sub">১২টা পাঠই শেষ। এখন রিভিউ করো, আর যেকোনো পাঠ আবার পড়ো।</div>
         <a class="btn light" href="#/review">${ic("refresh")}রিভিউ করো</a></div>`;
-    } else if (waitingForTomorrow(cur.id)) {
-      hero = `<div class="card hero rest"><span class="hero-ic">${ic("calendar-check")}</span>
-        <span class="tag">আজকের পাঠ শেষ</span><h2>কাল আবার দেখা হবে!</h2>
-        <div class="sub">নতুন পাঠ <b class="en">${esc(cur.title)}</b> কাল খুলবে। এখন রিভিউ করে শব্দগুলো পাকা করো।</div>
-        <a class="btn light" href="#/review">${ic("refresh")}রিভিউ করো</a></div>`;
     } else {
       hero = `<div class="card hero"><span class="hero-ic">${ic(cur.icon)}</span>
         <span class="tag">${n ? "পরের পাঠ" : "আজকের পাঠ"} · পাঠ ${bnNum(cur.id)}</span>
@@ -156,10 +145,10 @@
         <span class="rc-txt"><span class="t">রিভিউ বাকি: ${bnNum(due)}টা শব্দ</span><span class="d">২ মিনিটে ঝালিয়ে নাও</span></span>
         ${ic("chevron-right", "go")}</a>` : "";
     const rows = LESSONS.map((l, i) => {
-      const d = isDone(l.id), c = cur && cur.id === l.id, u = unlocked(l.id), wait = waitingForTomorrow(l.id);
-      const cls = d ? "done" : c && u ? "current" : u ? "open" : "locked";
-      const st = d ? `${ic("check")}শেষ` : wait ? `${ic("clock")}কাল` : u ? "শুরু" : ic("lock");
-      return `<li><button class="lesson-row ${cls}" data-go="${l.id}" ${u ? "" : 'aria-disabled="true"'}>
+      const d = isDone(l.id), c = cur && cur.id === l.id;
+      const cls = d ? "done" : c ? "current" : "open";
+      const st = d ? `${ic("check")}শেষ` : "শুরু";
+      return `<li><button class="lesson-row ${cls}" data-go="${l.id}">
         ${tile(l.icon, i)}
         <span class="lr-txt"><span class="ttl en">${esc(l.title)}</span><span class="sub">পাঠ ${bnNum(l.id)} · ${esc(l.bn)}</span></span>
         <span class="state">${st}</span></button></li>`;
@@ -203,7 +192,6 @@
   function startLesson(id) {
     L = LESSONS.find((l) => l.id === id);
     if (!L) { location.hash = "#/"; return; }
-    if (!unlocked(id)) { toast(lockMsg(id)); location.hash = "#/"; return; }
     score = { right: 0, total: 0 };
     steps = [];
     warmupQuestions(L).forEach((q) => steps.push({ type: "q", q }));
@@ -462,7 +450,7 @@
     const stars = pct >= 0.9 ? 3 : pct >= 0.6 ? 2 : 1;
     const nextL = LESSONS.find((l) => l.id === L.id + 1);
     let nextMsg = "তুমি সব পাঠ শেষ করেছ!";
-    if (nextL) nextMsg = unlocked(nextL.id) ? `পরের পাঠ: <b class="en">${esc(nextL.title)}</b>` : `পরের পাঠ <b class="en">${esc(nextL.title)}</b> কাল খুলবে।`;
+    if (nextL) nextMsg = `পরের পাঠ: <b class="en">${esc(nextL.title)}</b>`;
     frame(`<div class="done-wrap">
         <div class="stars">${[0, 1, 2].map((i) => ic(i < stars ? "f-star" : "star", i < stars ? "on" : "")).join("")}</div>
         <h2>শাবাশ, <span class="en">${NAME}</span>!</h2>
@@ -547,21 +535,6 @@
       <button class="link-danger" data-act="reset">সব অগ্রগতি মুছে নতুন করে শুরু করো</button>`);
   }
 
-  /* ---------------- settings ---------------- */
-  function openSettings() {
-    const dlg = document.createElement("dialog");
-    dlg.className = "settings";
-    dlg.innerHTML = `
-      <div class="howto-head"><h3>সেটিংস</h3><button class="icon-btn" data-close aria-label="বন্ধ করো">${ic("x")}</button></div>
-      <label class="set-row"><input type="checkbox" id="dailyLock" ${state.dailyLock ? "checked" : ""}>
-        <span><b>প্রতিদিন ১টা করে নতুন পাঠ</b><small>প্রথম ৩টা পাঠ সবসময় খোলা। বন্ধ করলে সব পাঠ খুলে যাবে।</small></span></label>`;
-    document.body.appendChild(dlg);
-    dlg.querySelector("#dailyLock").addEventListener("change", (e) => { state.dailyLock = e.target.checked; save(); route(); });
-    dlg.addEventListener("click", (e) => { if (e.target === dlg || e.target.closest("[data-close]")) dlg.close(); });
-    dlg.addEventListener("close", () => dlg.remove());
-    dlg.showModal();
-  }
-
   /* ---------------- events & routing ---------------- */
   document.addEventListener("click", (e) => {
     const sayEl = e.target.closest("[data-say]");
@@ -569,8 +542,7 @@
     const go = e.target.closest("[data-go]");
     if (go) {
       const id = +go.dataset.go;
-      if (unlocked(id)) location.hash = `#/lesson/${id}`;
-      else toast(lockMsg(id));
+      location.hash = `#/lesson/${id}`;
       return;
     }
     const act = e.target.closest("[data-act]");
@@ -583,7 +555,6 @@
       toast(state.slow ? "এখন ধীরে ধীরে বলবে" : "স্বাভাবিক গতিতে বলবে");
     }
     else if (a === "quit") { stopSpeech(); location.hash = "#/"; }
-    else if (a === "settings") openSettings();
     else if (a === "hide-howto") { state.hideHowto = true; save(); renderHome(); }
     else if (a === "play-story") playStory(act);
     else if (a === "all-bn") { const ls = app.querySelectorAll(".sline"); const open = [...ls].every((l) => l.classList.contains("open")); ls.forEach((l) => l.classList.toggle("open", !open)); act.innerHTML = `${ic(open ? "eye" : "eye-off")}<span>${open ? "সব বাংলা দেখাও" : "বাংলা লুকাও"}</span>`; }
